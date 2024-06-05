@@ -6,7 +6,7 @@ function Todo_items({todo}) {
     const [isTodoEditable,setTodoEditable]=useState(false);
     const [todoMessage,setmsg]=useState(todo.todo);
     
-
+    
     const {deletetodo,updatetodo,toggletodo}=useTodo();
     const edittodo=()=>{
         updatetodo(todo.id,{...todo,todo:todoMessage});
@@ -28,7 +28,7 @@ function Todo_items({todo}) {
         <input type="text" 
         className={`border outline-none w-full bg-transparent rounded-lg ${isTodoEditable ? "border-black/10 px-2" : "border-transparent"}`}
         value={todoMessage}
-        onChange={(e) => setTodoMsg(e.target.value)}
+        onChange={(e) => setmsg(e.target.value)}
         readOnly={!isTodoEditable}
         />
         <button
@@ -36,8 +36,8 @@ function Todo_items({todo}) {
         onClick={() => {
             if (todo.completed) return
             if (isTodoEditable) {
-                editTodo()
-            }else setIsTodoEditable((prev) => !prev)
+                edittodo()
+            }else setTodoEditable((prev) => !prev)
         }}
         disabled={todo.completed}
         >{isTodoEditable ? "📁": "✏️"}</button>
