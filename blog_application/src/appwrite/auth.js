@@ -7,7 +7,7 @@ export class Account{
      client = new Client();
      account;
     constructor(){
-        this.client.getEndpoint(conf.appwriteUr).setProject(conf.appwriteProject);
+        this.client.getEndpoint(conf.appwriteUrl).setProject(conf.appwriteProject);
         this.account=new Account(this.client);
 
     }
